@@ -101,6 +101,37 @@ Networking
 
 No notable changes
 
+Porting Guide for v14.4.0
+=========================
+
+Major Changes
+-------------
+
+fortinet.fortios
+^^^^^^^^^^^^^^^^
+
+- Supported multiple versions of log fact modules.
+- Supported new versions 7.6.7 and 8.0.0.
+- Updated the Q&A for importing a certificate in the fortios_certificate_remote module.
+
+Deprecated Features
+-------------------
+
+- The dellemc.unity collection will be removed from Ansible 16 due to violations of the Ansible inclusion requirements.
+  No CI runs / sanity tests for 10 months.
+  See `Collections Removal Process for collections not satisfying the collection requirements <https://docs.ansible.com/projects/ansible/devel/community/collection_contributors/collection_package_removal.html#collections-not-satisfying-the-collection-requirements>`__ for more details, including for how this can be cancelled (`https://forum.ansible.com/t/46085 <https://forum.ansible.com/t/46085>`__).
+  After removal, users can still install this collection with ``ansible-galaxy collection install dellemc.unity``.
+
+netapp_eseries.santricity
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- na_santricity_volume and nar_santricity_host - The ``raid_level`` volume option alias is deprecated and will be removed in version 3.0.0. Use ``ddp_raid_level`` instead.
+
+theforeman.foreman
+^^^^^^^^^^^^^^^^^^
+
+- activation_key - the ``content_view`` and ``lifecycle_environment`` parameters are deprecated, please use ``content_view_environments`` instead (https://github.com/theforeman/foreman-ansible-modules/pull/1982)
+
 Porting Guide for v14.3.0
 =========================
 
